@@ -1,0 +1,243 @@
+<html>
+    <head>
+        <style>
+:root {
+  --clock: rgb(54, 54, 54);
+  --numbers: #707070;
+  --hand-second: #b8b8b8;
+  --clock-height: 300px;
+  --clock-width: 300px;
+  --fluorescent-green: #ff4748;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Courier New", Courier, monospace;
+  background-color: var(--clock);
+}
+
+.clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--clock-width);
+  height: var(--clock-height);
+  border-radius: 50%;
+  background-color: var(--clock);
+  box-shadow: 2px 1px 3px rgba(53, 53, 53, 0.5),
+    inset 2px 2px 10px rgba(0, 0, 0, 0.5),
+    inset -2px -4px 7px rgba(53, 53, 53, 0.5), 4px 4px 8px rgba(0, 0, 0, 0.4);
+  border: 5px solid #393838;
+}
+
+.clock::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--numbers);
+  z-index: 3;
+  box-shadow: 1px 1px 3px #1a1a1a;
+}
+
+.number {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.number div {
+  font-size: 22px;
+  color: var(--fluorescent-green);
+  text-shadow: 1px 1px 0px #1a1a1a, 1px 2px 1px #1a1a1a, 2px 2px 1px #1a1a1a,
+    1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.no-num::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  top: 17px;
+  background-color: var(--fluorescent-green);
+  box-shadow: 1px 1px 0px #1a1a1a, 1px 2px 1px #1a1a1a, 2px 2px 1px #1a1a1a,
+    1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.number-one {
+  transform: rotate(30deg);
+}
+
+.number-two {
+  transform: rotate(60deg);
+}
+
+.number-three {
+  transform: rotate(90deg);
+}
+
+.number-three div {
+  transform: rotate(-90deg);
+}
+
+.number-four {
+  transform: rotate(120deg);
+}
+
+.number-five {
+  transform: rotate(150deg);
+}
+
+.number-six {
+  transform: rotate(180deg);
+}
+
+.number-six div {
+  transform: rotate(-180deg);
+}
+
+.number-seven {
+  transform: rotate(210deg);
+}
+
+.number-eight {
+  transform: rotate(240deg);
+}
+
+.number-nine {
+  transform: rotate(270deg);
+}
+
+.number-nine div {
+  transform: rotate(90deg);
+}
+
+.number-ten {
+  transform: rotate(300deg);
+}
+
+.number-eleven {
+  transform: rotate(330deg);
+}
+
+.hand {
+  position: absolute;
+  transform-origin: bottom;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0px 2px 2px #1a1a1a, 2px -2px 2px #1a1a1a,
+    1px -1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.hand-second {
+  width: 3px;
+  height: calc(var(--clock-height) / 3);
+  background-color: var(--hand-second);
+  top: 45px;
+  z-index: 2;
+}
+
+.hand-minute {
+  width: 5px;
+  height: calc(var(--clock-height) / 3.5);
+  background-color: var(--fluorescent-green);
+  top: 59px;
+  z-index: 1;
+}
+
+.hand-hour {
+  width: 8px;
+  height: calc(var(--clock-height) / 4.2);
+  background-color: var(--fluorescent-green);
+  top: 73.5px;
+}
+
+        </style>
+    </head>
+
+    <body>
+        <div class = 'clock'>
+            <div class = 'hand hand-second'></div>
+            <div class = 'hand hand-minute'></div>
+            <div class = 'hand hand-hour'></div>
+            <div class = 'number number-twelve'>
+                <div>12</div>
+            </div>
+            <div class = 'number number-one'>
+                <div class = 'no-num'></div>
+            </div>
+            <div class = 'number number-two'>
+                <div class = 'no-num'></div>
+            </div>
+            <div class = 'number number-three'>
+                <div>3</div>
+            </div>
+            <div class = 'number number-four'>
+                <div class = 'no-num'></div>
+            </div>
+            <div class = 'number number-five'>
+                <div class = 'no-num'></div>
+            </div>
+            <div class = 'number number-six'>
+                <div>6</div>
+            </div>
+            <div class = 'number number-seven'>
+                <div class = 'no-num'></div>
+            </div>
+            <div class = 'number number-eight'>
+                <div class = 'no-num'></div>
+            </div>
+            <div class = 'number number-nine'>
+                <div>9</div>
+            </div>
+            <div class = 'number number-ten'>
+                <div class = 'no-num'></div>
+            </div>
+            <div class = 'number number-eleven'>
+                <div class = 'no-num'></div>
+            </div>
+        </div>
+
+        
+        <script>
+            const hand_hour = document.querySelector(".hand-hour");
+const hand_minute = document.querySelector(".hand-minute");
+const hand_second = document.querySelector(".hand-second");
+
+function timeHandler() {
+  let time = new Date();
+
+  let hour = time.getHours();
+  let minute = time.getMinutes();
+  let second = time.getSeconds();
+
+  hand_hour.style.transform = `rotate(${
+    (hour / 12 + minute / (60 * 12)) * 360
+  }deg)`;
+
+  hand_minute.style.transform = `rotate(${
+    (minute / 60 + second / (60 * 60)) * 360
+  }deg)`;
+
+  hand_second.style.transform = `rotate(${(second / 60) * 360}deg)`;
+}
+
+setInterval(timeHandler, 1000);
+
+
+        </script>
+    
+    </body>
+</html>

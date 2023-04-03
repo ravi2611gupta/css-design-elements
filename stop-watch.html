@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #efefef;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            background-color: #000017;
+        }
+
+        h1 {
+            font-size: 45px;
+            position: relative;
+            margin-top: 43%;
+        }
+
+        .outer {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .lap-cover {
+            height: 60px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button,
+        #lap {
+            display: inline-block;
+            font-size: 18px;
+            width: 12%;
+            height: 48px;
+            color: white;
+            font-weight: bolder;
+            outline: none;
+            border: 0;
+            border-radius: 5px;
+            background-image: -webkit-linear-gradient(left, #141e30, #243b55);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            outline: none;
+            transition: 0.1s;
+        }
+
+        button:active {
+            box-shadow: 0 0 black;
+            transform: scale(0.94);
+        }
+
+        #begin {
+            background-image: -webkit-linear-gradient(right, #ff8035, #ff5741);
+        }
+
+        #reset {
+            background-image: -webkit-linear-gradient(right, #ff8035, #ff5741);
+        }
+
+        #controls {
+            width: 100vw;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        #lap {
+            width: 25%;
+        }
+
+        .lap-para {
+            color: white;
+            border-left: 6px double #ff5741;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            padding: 4px 10px;
+        }
+
+        #output {
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div>
+            <h1 id="output"><b>00:00:00:00</b></h1>
+        </div>
+
+        <div>
+            <div id="controls">
+                <button id="begin" onclick="begin()">
+                    <div id="start">START</div>
+                </button>
+
+                <button onclick="reset()" id="reset">RESET</button>
+            </div>
+        </div>
+        <div class="lap-cover">
+            <button id="lap" onclick="noteLap()">LAP</button>
+        </div>
+
+        <div id="lap-container">
+
+        </div>
+    </div>
+
+    <audio id="click" autoplay loop>
+        <source src="https://dl-web.dropbox.com/s/so2l579qs7alolb/Stopwatch%203.mp3?dl=0" type="audio/mp3">
+    </audio>
+
+    <h1>Hey! I'm H1 Tag</h1>
+    <h2>Hey! I'm H2 Tag</h2>
+    <h3>Hey! I'm H3 Tag</h3>
+    <h4>Hey! I'm H4 Tag</h4>
+    <h5>Hey! I'm H5 Tag</h5>
+    <h6>Hey! I'm H6 Tag</h6>
+
+    <script>
+
+        "use strict"
+
+    var time = 0; var i = 0;
+    var isrunning = false;
+    var lap = "00:00:00:00";
+    var isready;
+    let lapContainer = document.getElementById("lap-container");
+
+
+    function begin() {
+        var aud = document.getElementById("click");
+
+        if (!isrunning) {
+            isrunning = true;
+            increment();
+            aud.play(); isready = aud.play();
+            document.getElementById("start").innerHTML = "PAUSE"; 
+            document.getElementById("begin").style.backgroundImage = "-webkit-linear-gradient(left,#cb2d3e,#ef473a)";
+        }
+
+        else {
+            isrunning = false;
+
+            if (isready !== undefined) {
+                aud.pause();
+            } 
+            document.getElementById("start").innerHTML = "RESUME"; 
+            document.getElementById("begin").style.backgroundImage = "-webkit-linear-gradient(right,#ff8035,#ff5741)";
+        }
+
+    }
+
+
+    function increment() {
+        if (isrunning) {
+            setTimeout(
+
+                function () {
+                    time++; var t = time / 10;
+
+                    var milli = time % 10;
+                    var secs = Math.floor(t % 60);
+                    var mins = Math.floor(t / 60);
+                    var hours = Math.floor(t / 3600);
+
+                    if (mins < 10) { mins = "0" + mins; }
+                    if (milli < 10) { milli = milli + "0"; }
+                    if (hours < 10) { hours = "0" + hours; }
+                    if (secs < 10) { secs = "0" + secs; }
+
+                    lap = hours + ":" + mins + ":" + secs + ":" + milli;
+
+                    document.getElementById("output").innerHTML = lap;
+
+                    increment();
+                }, 100)
+
+        }
+    }
+
+    function reset() {
+        isrunning = false; time = -1;
+        i = 0;
+
+        lapContainer.innerHTML = "";
+        var aud = document.getElementById("click");
+
+        if (isready !== undefined) {
+            aud.pause();
+        }
+        document.getElementById("start").innerHTML = "START"; document.getElementById("output").innerHTML = "00:00:00:00"; document.getElementById("begin").style.backgroundImage = "-webkit-linear-gradient(right,#ff8035,#ff5741)";
+
+    }
+
+    function noteLap() {
+        i++;
+        lapContainer.innerHTML += `<p class="lap-para">Lap: ${i} on: ${lap}</p>`;
+    }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 
+                Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            html, body{
+                display: grid;
+                height: 100%;
+                place-items: center;
+                background-color: #000;
+
+            }
+
+            .wrapper{
+                
+                height: 100px;
+                width: 400px;
+                background: 
+                linear-gradient(135deg, #2cb2ba,
+                 #f2e713, #0ab6f8);
+                border-radius: 10px;
+                cursor: default;
+                animation: animate 1.5s linear infinite;
+            }
+
+            .wrapper .display{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #1b1b1b;
+                height: 85px;
+                width: 385px;
+                text-align: center;
+                border-radius: 6px;
+            }
+
+            .wrapper .display,
+            .wrapper span{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            } 
+
+            .wrapper .display #time{
+                line-height: 85px;
+                color: #fff;
+                font-size: 50px;
+                letter-spacing: 1px;
+                background: 
+                linear-gradient(135deg, #2cb2ba,
+                 #f2e713, #0ab6f8);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: animate 1.5s linear infinite;
+            }
+
+            @keyframes animate {
+                100%{
+                    filter: hue-rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="display">
+                <div id="time"></div>
+            </div>
+        </div>
+        
+        <script>
+            setInterval(()=>{
+                const time = document.getElementById("time");
+                let date = new Date();
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
+                let seconds = date.getSeconds();
+                let day_night = "AM";
+                
+                if(hours>12){
+                    hours = hours - 12;
+                    day_night = "PM"
+                }
+
+                if(hours<10){
+                    hours = "0"+hours;
+                }
+                if(minutes<10){
+                    minutes = "0"+hours;
+                }
+                if(seconds<10){
+                    seconds = "0"+seconds;
+                }
+
+                time.textContent = `${hours}:${minutes}:${seconds} ${day_night}`;
+            })
+
+        </script>
+    </body>
+</html>

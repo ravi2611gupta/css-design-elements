@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <title>Stop Watch</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body{
+        background-color: #000017;
+      }
+      .counter{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .counter-body{
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        padding: 40px;
+      }
+      button{
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        padding: 5px 10px;
+        color: #fff;
+        outline: none;
+        font-family: "Poppins", sans-serif;
+        border-radius: 5px;
+      }
+      button:hover{
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      p{
+        font-size: 50px;
+        color: #fff;
+        letter-spacing: 5px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="counter">
+      <div class="counter-body">
+        <p>
+          <span class="counter-time">00:00:00</span>
+        </p>
+        <button class="counter-button">Start</button>
+        <button class="counter-restart">Reset</button>
+      </div>
+    </div>
+    <script>
+      const counterBtn = document.querySelector(".counter-button");
+      const counterTime = document.querySelector(".counter-time");
+      const counterRestart = document.querySelector(".counter-restart");
+
+      const formatTime = (time) =>
+        new Date(time * 1000).toISOString().substring(11, 19);
+
+      let time = 0;
+      let state = true;
+      let intervalId = null;
+
+      counterBtn.addEventListener("click", () => {
+        if (state) {
+          state = false;
+          counterBtn.innerText = "Stop";
+          intervalId = setInterval(() => {
+            time += 1;
+            counterTime.innerHTML = formatTime(time);
+          }, 1000);
+        } else {
+          clearInterval(intervalId);
+          state = true;
+          counterBtn.innerText = "Start";
+        }
+      });
+
+      counterRestart.addEventListener("click", () => {
+        clearInterval(intervalId);
+        state = true;
+        time = 0;
+        counterBtn.innerText = "Start";
+        counterTime.innerHTML = formatTime(time);
+      });
+</script>
+  </body>
+</html>

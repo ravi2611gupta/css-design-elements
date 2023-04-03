@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            div{
+                height: 100%;
+                width: 100%;
+                background-color: #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            div h2{
+                font-size: 3rem;
+                color: #000;
+                -webkit-text-stroke: 1px #6d6d6d;
+                letter-spacing: 2px;
+                position: relative;
+            }
+
+            div h2::before{
+                content: attr(data-text);
+                height: 100%;
+                width: 0%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: #ff5741;
+                -webkit-text-stroke: 1px #ff5741;
+                overflow: hidden;
+                border-right: 1px solid #ff5741;
+                animation: write-me 3s linear infinite;
+            }
+            
+            @keyframes write-me {
+                0%, 30%, 100%{
+                    width: 0;
+                }
+                60%, 80%{
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <h2 data-text="offcampus...">offcampus...</h2>
+        </div>
+    </body>
+</html>

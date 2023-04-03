@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>
+            Owl Carousel Demonstration
+        </title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+        <style>
+            .item{
+                height: 250px;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <img src="gal1.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="gal2.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="gal3.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="gal4.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="gal5.jpg" alt="">
+            </div>
+        </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                margin:10,
+                nav:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    650:{
+                        items:3
+                    },
+                    1000:{
+                        items:5
+                    }
+                }
+            })
+        </script>
+
+    </body>
+</html>

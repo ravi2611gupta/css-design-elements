@@ -1,0 +1,190 @@
+<html>
+
+<head>
+
+    <style>
+        :root {
+            font-size: 24px;
+        }
+
+        body {
+            background: #1488cc;
+            background: #000017;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Josefin Sans", sans-serif;
+        }
+
+        .container {
+            height: 60%;
+            width: 60%;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(30px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(#000017, #252245);
+        }
+
+        .circles {
+            position: absolute;
+            height: 270px;
+            width: 450px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle-1 {
+            height: 180px;
+            width: 180px;
+            top: -50px;
+            left: -60px;
+        }
+
+        .circle-2 {
+            height: 200px;
+            width: 200px;
+            bottom: -90px;
+            right: -90px;
+            opacity: 0.8;
+        }
+
+        .card-group {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .card {
+            position: relative;
+            height: 270px;
+            width: 450px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(30px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .logo img,
+        .chip img,
+        .number,
+        .name,
+        .from,
+        .to,
+        .ring {
+            position: absolute;
+        }
+
+        .logo img {
+            top: 35px;
+            right: 40px;
+            width: 80px;
+            height: auto;
+            opacity: 0.8;
+        }
+
+        .chip img {
+            top: 120px;
+            left: 40px;
+            width: 50px;
+            height: auto;
+            opacity: 0.8;
+        }
+
+        .number,
+        .name,
+        .from,
+        .to {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+        }
+
+        .number {
+            left: 40px;
+            bottom: 65px;
+            font-family: "Nunito", sans-serif;
+        }
+
+        .name {
+            font-size: 0.5rem;
+            left: 40px;
+            bottom: 35px;
+        }
+
+        .from {
+            font-size: 0.5rem;
+            bottom: 35px;
+            right: 110px;
+        }
+
+        .to {
+            font-size: 0.5rem;
+            bottom: 35px;
+            right: 40px;
+        }
+
+        .ring {
+            height: 500px;
+            width: 500px;
+            border-radius: 50%;
+            background: transparent;
+            border: 50px solid rgba(255, 255, 255, 0.1);
+            bottom: -250px;
+            right: -250px;
+            box-sizing: border-box;
+        }
+
+        .ring::after {
+            content: "";
+            position: absolute;
+            height: 600px;
+            width: 600px;
+            border-radius: 50%;
+            background: transparent;
+            border: 30px solid rgba(255, 255, 255, 0.1);
+            bottom: -80px;
+            right: -110px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="circles">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+        </div>
+
+        <div class="card-group">
+            <div class="card" data-tilt>
+                <div class="logo"><img src="visa.png" alt="Visa"></div>
+                <div class="chip"><img src="chip.png" alt="chip"></div>
+                <div class="number">1111 2222 3333 4444</div>
+                <div class="name">OFFCAMPUS ACADEMY</div>
+                <div class="from">02/23</div>
+                <div class="to">02/25</div>
+                <div class="ring"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
+
+</body>
+</html>

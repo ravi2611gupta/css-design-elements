@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Increment Decrement Counter</title>
+        <style>
+            *{
+                position: relative;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                min-height: 100vh;
+                background-color: #000017;
+            }
+            button{
+                width: 60px;
+                height: 60px;
+                font-size: 3em;
+                line-height: 30px;
+                border-radius: 10px;
+                outline: none;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                background-color: #ff8035;
+                box-shadow: inset -2px -2px 2px #ffffff33,
+                            inset 2px 5px 15px #00000080;
+            }
+            button:active{
+                box-shadow: inset -2px -2px 2px #ffffff1a,
+                            inset -2px -5px 15px #00000080;
+            }
+            input{
+                border-radius: 10px;
+                outline: none;
+                border: none;
+                padding: 17px 0;
+                width: 100px;
+                text-align: center;
+                font-size: 1.5em;
+                color: #fff;
+                margin: 0 10px;
+                background-color: #27272f;
+                box-shadow: inset -2px -2px 2px #ffffff33,
+                            inset 2px 5px 15px #00000080;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="sub">-</button>
+        <input type="text" id="numBox" readonly="" value="0">
+        <button id="add">+</button>
+
+        <script>
+            let addBtn = document.querySelector('#add');
+            let subBtn = document.querySelector('#sub');
+            let num = document.querySelector('#numBox');
+
+            addBtn.addEventListener('click',()=>{
+                num.value = parseInt(num.value) + 1;
+            });
+
+            subBtn.addEventListener('click', ()=>{
+                if(num.value<=0){
+                    num.value = 0;
+                }else{
+                    num.value = parseInt(num.value) - 1;
+                }
+            });
+        </script>
+    </body>
+</html>

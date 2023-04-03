@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --bg-color: pink
+        }
+
+        body {
+            background-color: var(--bg-color);
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .head {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 6px solid #e9960f;
+            background: radial-gradient(circle, rgba(255, 230, 53, 1) 0%, rgba(233, 150, 15, 1) 100%);
+            box-shadow: 4px 4px 36px 24px rgba(244, 126, 28, 0.7) inset;
+            position: relative;
+            justify-content: center;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .head::before {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            clip-path: polygon(49% 0%, 100% 10%, 65% 48%, 100% 74%, 51% 100%, 77% 72%, 57% 46%, 81% 13%);
+            margin-top: 170px;
+            border-radius: 50%;
+            background-color: #492a0d;
+        }
+
+        .left,
+        .right {
+            background: rgba(98, 47, 2, 1);
+            border-radius: 50%;
+            border: 1px solid #492a0d;
+            position: absolute;
+            box-shadow: 1px 2px 8px 8px #492a0d inset;
+             width: 50px;
+            height: 70px;
+            margin-top: 80px;
+            margin-left: -100px;
+        }
+
+        .right {
+            width: 65px;
+            height: 30px;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+
+        .left::after,
+        .right::after {
+            content: "";
+            position: absolute;
+
+            clip-path: ellipse(50% 22% at 50% 100%);
+            border: 1px solid #492a0d;
+            width: 70px;
+            height: 60px;
+            background: rgba(98, 47, 2, 1);
+            box-shadow: 1px 2px 8px 8px #492a0d inset;
+            margin-top: -80px;
+            margin-left: -50px;
+            transform: rotate(-25deg);
+ }
+
+        .right::after {
+            margin-left: 20px;
+            transform: rotate(10deg);
+        }
+
+        .heart {
+            width: 80px;
+            height: 80px;
+            transform: rotate(75deg);
+            transform-origin: center;
+            position: relative;
+            background: #c51f22;
+            margin-top: 190px;
+            margin-left: -90px;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #c51f22;
+        }
+
+        .heart::before {
+            left: -40px;
+        }
+
+        .heart::after {
+            top: -40px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <div class="heart"></div>
+    </div>
+
+</body>
+
+</html>

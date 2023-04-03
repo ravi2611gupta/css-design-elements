@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body{
+                background-color: #03045e;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 200px;
+                width: 150px;
+                background-color: #00004d;
+                border-radius: 16px;
+                font-family: 
+                Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: 900;
+                color: white;
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+                box-shadow: 5px 10px 8px rgba(0,0,0,0.2);
+            }
+
+            div p:nth-child(1){
+                font-size: 1.5rem;
+            }
+            div p:nth-child(2){
+                font-size: 2.5rem;
+            }
+            div p:nth-child(3){
+                font-size: 1.5rem;
+            }
+
+            div::before{
+                content: '';
+                height: 240px;
+                width: 100px;
+                position: absolute;
+                top: -10%;
+                left: 17%;
+                background: linear-gradient(#ee7e00, #01f2f2);
+                animation: animate-me 2s linear infinite;
+                z-index: -1;
+            }
+
+            @keyframes animate-me {
+                0%{
+                    transform: rotate(0deg);
+                }
+                100%{
+                    transform: rotate(360deg);
+                }
+            }
+
+            div::after{
+                content: '';
+                position: absolute;
+                inset: 2px;
+                background-color: #00004d;
+                z-index: -1;
+                border-radius: 14px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <p>DHONI</p>
+            <p>07 &larr;</p>
+            <p>INDIA</p>
+        </div>
+    </body>
+</html>

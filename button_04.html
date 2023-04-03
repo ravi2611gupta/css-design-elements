@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <style>
+
+body{
+    background-color: black;
+}
+
+            .btn-contain {
+              margin: 5% auto;
+              min-height: 100px;
+            }
+            .btn-outline-contain {
+              text-align: center;
+              max-width: 270px;
+              margin: 0 auto;
+            }
+            .btn-outline {
+              font-weight:bold;
+              text-align: center;
+              text-decoration: none;
+              outline: none;
+              cursor: pointer;
+              position: relative;
+              border: 1px solid rgba(245, 86, 46, 0.5);
+              color: rgba(245, 86, 46, 0.5);
+              text-decoration: none;
+              padding: 20px;
+              display: block;
+                -webkit-transition: .5s ease-in-out;
+              -moz-transition: .5s ease-in-out;
+              -o-transition: .5s ease-in-out;
+              transition: .5s ease-in-out;
+            }
+            .btn-outline:hover .btn-outline-inner {
+              font-weight:bold;
+              color: #f5562e;
+              -webkit-transition: .5s ease-in-out;
+              -moz-transition: .5s ease-in-out;
+              -o-transition: .5s ease-in-out;
+              transition: .5s ease-in-out;
+            } 
+            .btn-outline:hover .line-1 {animation: outline1 2s infinite ease-in-out;} 
+            .btn-outline:hover .line-2 {animation: outline2 2s infinite ease-in-out;}    
+            .btn-outline:hover .line-3 {animation: outline3 2s infinite ease-in-out;}
+            .btn-outline:hover .line-4 {animation: outline4 2s infinite ease-in-out;} 
+            .line-1 {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 2px;
+                background-color: #f5562e;
+                left: 0;
+                bottom: 0;
+            }
+            .line-2 {
+              content: "";
+              display: block;
+              position: absolute;
+              height: 2px;
+              background-color: #f5562e;
+              left: 0;
+              top: 0;
+            }
+            .line-3 {
+              content: "";
+              display: block;
+              position: absolute;
+              width: 2px;
+              background-color: #f5562e;
+              right: 0;
+              top: 0;
+            }
+            .line-4 {
+              content: "";
+              display: block;
+              position: absolute;
+              height: 2px;
+              background-color: #f5562e;
+              right: 0;
+              top: 57px;
+            }
+            @keyframes outline1 {
+              0% {height: 100%; bottom: 0;}
+              54% {height: 0; bottom: 100%;}
+              55% {height: 0; bottom: 0;}
+              100% {height: 100%; bottom: 0;}
+            }
+            @keyframes outline2 {
+              0% {width: 0;left: 0;}
+              50% {width: 100%; left: 0;}
+              100% {width: 0; left: 100%;}
+            }
+            
+            @keyframes outline3 {
+              0% {height: 100%; top: 0;}
+              54% {height: 0; top: 100%;}
+              55% {height: 0; top: 0;}
+              100% {height: 100%; top: 0;}
+            }
+            
+            @keyframes outline4 {
+              0% { width: 0; right: 0;}
+              55% {width: 100%; right: 0;}
+              100% {width: 0; right: 100%;}
+            }
+            </style>
+
+    <body>
+        <div class="btn-contain">
+            <div class='btn-outline-contain'>
+              <a class='btn-outline' href='http://mediamilitia.com'>
+                <span class="btn-outline-inner">Hover Me</span>
+                <span class='line-1'></span>
+                <span class='line-2'></span>
+                <span class='line-3'></span>
+                <span class='line-4'></span>
+              </a>
+            </div>
+        </div>
+    </body>
+</html>

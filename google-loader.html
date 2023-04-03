@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <style>
+            body{
+                margin:0;
+                display: grid;
+                place-items: center;
+                height: 100vh;
+            }
+            .dots-wrapper{
+                display: flex;
+            }
+            .dot{
+                width: 20px;
+                height:20px;
+                border-radius: 50%;
+                animation: move 0.6s ease-in-out alternate infinite;
+            }
+            .dot:not(:last-child){
+                margin-right: 12px;
+            }
+            .dot:first-child{
+                background-color: #4285f4;
+            }
+            .dot:nth-child(2){
+                background-color: #db4437;
+                animation-delay: 0.2s;
+            }
+            .dot:nth-child(3){
+                background-color: #f4b400;
+                animation-delay: 0.2s;
+            }
+            .dot:last-child{
+                background-color: #0f9d58;
+                animation-delay: 0.6s;
+            }
+
+            @keyframes move{
+                to{
+                    transform: translateY(-15px);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="dots-wrapper">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </body>
+</html>

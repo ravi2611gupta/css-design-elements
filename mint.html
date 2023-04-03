@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Card Hover Effects</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700;800;900&display=swap");
+
+        * {
+            margin: 10px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Barlow Semi Condensed", sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #fff;
+        }
+
+        .card {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+            transition-delay: 0.5s;
+        }
+
+        .card:hover {
+            width: 600px;
+            transition-delay: 0.5s;
+        }
+
+        .card .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card .circle::before {
+            content: "";
+            position: absolute;
+            top: 30;
+            left: 2;
+            right: 2;
+            width: 470px;
+            height: 470px;
+            border-radius: 50%;
+            background: #fff;
+            border: 8px solid var(--clr);
+            filter: drop-shadow(0 0 10px var(--clr)) drop-shadow(0 0 60px var(--clr));
+            transition: 0.5s, background 0.5s;
+            transition-delay: 0.75s, 1s;
+        }
+
+        .card:hover .circle::before {
+            transition-delay: 0.5s;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: var(--clr);
+        }
+
+        .card .circle .logo {
+            position: relative;
+            width: 350px;
+            transition: 0.5s;
+            transition-delay: 0.5s;
+        }
+
+        .card:hover .circle .logo {
+            transform: scale(0);
+            transition-delay: 0s;
+        }
+
+        .card .product_img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0) rotate(315deg);
+            height: 300px;
+            transition: 0.5s ease-in-out;
+        }
+
+        .card:hover .product_img {
+            transition-delay: 0.75s;
+            top: 55%;
+            left: 82%;
+            height: 320px;
+            transform: translate(-50%, -50%) scale(1) rotate(15deg);
+        }
+
+        .card .content {
+            position: absolute;
+            width: 60%;
+            left: 10%;
+            padding: 20px 20px 20px 20px;
+            opacity: 0;
+            transition: 0.5s;
+            visibility: hidden;
+        }
+
+        .card:hover .content {
+            transition-delay: 0.75s;
+            opacity: 1;
+            visibility: visible;
+            left: 3px;
+            margin-top: 15px;
+        }
+
+        .card .content h2 {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 2em;
+            line-height: 1.3em;
+        }
+
+        .card .content p {
+            color: #fff;
+        }
+
+        .card .content a {
+            position: relative;
+            color: #fff;
+            background: #222222;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outter">
+        <div class="card">
+            <div class="circle" style="--clr:#000017;">
+                <img src="mint.png" class="logo">
+            </div>
+            <div class="content">
+                <h2>Green mint plants</h2>
+                <p>Mint is a versatile herb that is widely known for its refreshing flavor and aroma.
+                </p>
+                <a href="#">Buy now &nbsp; &rarr;</a>
+            </div>
+            <img src="mints.png" class="product_img">
+        </div>
+    </div>
+</body>
+
+</html>
