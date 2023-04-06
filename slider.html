@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        header,
+        .title-section,
+        .content-section{
+            height: 100vh;
+            line-height: 100vh;
+        }
+
+        header{
+            background-color: red;
+        }
+
+        section{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+        }
+
+        .title-section{
+            position: sticky;
+            top: 0;
+            background-color: orange;
+        }
+
+        .sec-1{
+            background-color: black;
+        }
+        .sec-2{
+            background-color: lime;
+        }
+        .sec-3{
+            background-color: gray;
+        }
+
+        footer{
+            height: 20vh;
+            line-height: 20vh;
+            background-color: aqua;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <header>
+        On Top
+    </header>
+
+    <section>
+        <div class="title-section">
+            On Left
+        </div>
+
+        <div class="c-section">
+            <div class="content-section sec-1">content</div>
+            <div class="content-section sec-2">On Right Side</div>
+            <div class="content-section sec-3">To Scroll Through</div>
+        </div>
+    </section>
+
+    <footer>
+        footer
+    </footer>
+</body>
+</html>
